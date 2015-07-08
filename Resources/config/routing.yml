@@ -1,0 +1,7 @@
+tm_solution_asterisk_sipPeers:
+   path:  /asterisk/sipPeers
+   defaults: { _controller: CoreAsteriskBundle:Asterisk:sipPeers } 
+   
+tm_solution_asterisk_ping:
+   path:  /asterisk/ping
+   defaults: { _controller: CoreAsteriskBundle:Asterisk:connectPing }    

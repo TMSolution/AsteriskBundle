@@ -1,0 +1,16 @@
+parameters:
+#    tm_solution_asterisk.example.class: Core\AsteriskBundle\Example
+
+services:
+    
+    TMSolution.AsteriskBundle.AsteriskService:
+        class: "Core\AsteriskBundle\Service\AsteriskService"
+        arguments: [@service_container]
+        
+    TMSolution.AsteriskBundle.AsteriskListener:
+        class: Core\AsteriskBundle\EventListener\AsteriskListener
+        arguments: [@service_container]
+        tags:
+            - { name: kernel.event_listener, event: fullybooted.event, method: onFullyBooted }
+            - { name: kernel.event_listener, event: peerentry.event, method: onPeerEntry }
+            - { name: kernel.event_listener, event: peerlistcomplete.event, method: onPeerListComplete }
