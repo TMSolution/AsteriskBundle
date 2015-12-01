@@ -1,7 +1,7 @@
 {
     "name": "tmsolution/asterisk-bundle",
     "type": "symfony-bundle",
-    "description": "Symfony2 bundle for logging",
+    "description": "Symfony2 bundle for Asterisk",
     "keywords": ["asterisk", "bundle"],
     "homepage": "https://github.com/TMSolution/AsteriskBundle",
     "license": "MIT",
