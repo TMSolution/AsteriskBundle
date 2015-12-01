@@ -1,6 +1,6 @@
 <?php
 
-namespace CCO\CallCenterBundle\Entity;
+namespace Core\AsteriskBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
@@ -10,7 +10,7 @@ use Doctrine\ORM\Mapping as ORM;
  * @ORM\Table(name="pbx_cdr")
  * @ORM\Entity
  */
-class PbxCdr
+class Cdr
 {
     
     /**
@@ -27,7 +27,7 @@ class PbxCdr
      *
      * @ORM\Column(name="calldate", type="datetime", nullable=false)
      */
-    private $calldate;
+    private $callDate;
 
     /**
      * @var string
@@ -35,13 +35,6 @@ class PbxCdr
      * @ORM\Column(name="clid", type="string", length=80, nullable=false)
      */
     private $cl;
-
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="bigint", nullable=true)
-     */
-    private $user;
 
     /**
      * @var string
@@ -62,7 +55,7 @@ class PbxCdr
      *
      * @ORM\Column(name="dcontext", type="string", length=80, nullable=true)
      */
-    private $dcontext;
+    private $dContext;
 
     /**
      * @var string
@@ -76,21 +69,21 @@ class PbxCdr
      *
      * @ORM\Column(name="dstchannel", type="string", length=80, nullable=true)
      */
-    private $dstchannel;
+    private $dstChannel;
 
     /**
      * @var string
      *
      * @ORM\Column(name="lastapp", type="string", length=80, nullable=true)
      */
-    private $lastapp;
+    private $lastApp;
 
     /**
      * @var string
      *
      * @ORM\Column(name="lastdata", type="string", length=80, nullable=true)
      */
-    private $lastdata;
+    private $lastData;
 
     /**
      * @var integer
@@ -118,14 +111,14 @@ class PbxCdr
      *
      * @ORM\Column(name="amaflags", type="integer", nullable=true)
      */
-    private $amaflags;
+    private $amaFlags;
 
     /**
      * @var string
      *
      * @ORM\Column(name="accountcode", type="string", length=45, nullable=true)
      */
-    private $accountcode;
+    private $accountCode;
 
     /**
      * @var string
@@ -163,9 +156,9 @@ class PbxCdr
     private $peeraccount;
 
     /**
-     * @var \Campaign
+     * @var \CCO\CallCenterBundle\Entity\Campaign
      *
-     * @ORM\ManyToOne(targetEntity="Campaign")
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Campaign")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
      * })
@@ -173,9 +166,9 @@ class PbxCdr
     private $campaign;
 
     /**
-     * @var \Callcenter
+     * @var \CCO\CallCenterBundle\Entity\Callcenter
      *
-     * @ORM\ManyToOne(targetEntity="Callcenter")
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Callcenter")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
@@ -183,18 +176,28 @@ class PbxCdr
     private $callcenter;
 
     /**
-     * @var \Contact
+     * @var \CCO\CallCenterBundle\Entity\Contact
      *
-     * @ORM\ManyToOne(targetEntity="Contact")
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Contact")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
      * })
      */
     private $contact;
     
+    /**
+     * @var CCO\UserBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="CCO\UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     * })
+     */
+    private $user;
+    
     
     /**
-     * @ORM\ManyToMany(targetEntity="PbxRecordFile", mappedBy="pbxcdr")
+     * @ORM\ManyToMany(targetEntity="CCO\CallCenterBundle\Entity\PbxRecordFile", mappedBy="pbxcdr")
      */
     protected $cdrFiles;
 
@@ -674,10 +677,10 @@ class PbxCdr
     /**
      * Set campaignid
      *
-     * @param \CCO\CallCenterBundle\Entity\Campaign $campaignid
+     * @param \Core\AsteriskBundle\Entity\Campaign $campaignid
      * @return Pbxcdr
      */
-    public function setCampaignid(\CCO\CallCenterBundle\Entity\Campaign $campaignid = null)
+    public function setCampaignid(\Core\AsteriskBundle\Entity\Campaign $campaignid = null)
     {
         $this->campaignid = $campaignid;
 
@@ -687,7 +690,7 @@ class PbxCdr
     /**
      * Get campaignid
      *
-     * @return \CCO\CallCenterBundle\Entity\Campaign 
+     * @return \Core\AsteriskBundle\Entity\Campaign 
      */
     public function getCampaignid()
     {
@@ -697,10 +700,10 @@ class PbxCdr
     /**
      * Set callcenter
      *
-     * @param \CCO\CallCenterBundle\Entity\Callcenter $callcenter
+     * @param \Core\AsteriskBundle\Entity\Callcenter $callcenter
      * @return Pbxcdr
      */
-    public function setCallcenter(\CCO\CallCenterBundle\Entity\Callcenter $callcenter = null)
+    public function setCallcenter(\Core\AsteriskBundle\Entity\Callcenter $callcenter = null)
     {
         $this->callcenter = $callcenter;
 
@@ -710,7 +713,7 @@ class PbxCdr
     /**
      * Get callcenter
      *
-     * @return \CCO\CallCenterBundle\Entity\Callcenter 
+     * @return \Core\AsteriskBundle\Entity\Callcenter 
      */
     public function getCallcenter()
     {
@@ -720,10 +723,10 @@ class PbxCdr
     /**
      * Set contact
      *
-     * @param \CCO\CallCenterBundle\Entity\Contact $contact
+     * @param \Core\AsteriskBundle\Entity\Contact $contact
      * @return Pbxcdr
      */
-    public function setContact(\CCO\CallCenterBundle\Entity\Contact $contact = null)
+    public function setContact(\Core\AsteriskBundle\Entity\Contact $contact = null)
     {
         $this->contact = $contact;
 
@@ -733,7 +736,7 @@ class PbxCdr
     /**
      * Get contact
      *
-     * @return \CCO\CallCenterBundle\Entity\Contact 
+     * @return \Core\AsteriskBundle\Entity\Contact 
      */
     public function getContact()
     {
@@ -761,10 +764,10 @@ class PbxCdr
     /**
      * Add cdrFiles
      *
-     * @param \CCO\CallCenterBundle\Entity\PbxRecordFile $cdrFiles
+     * @param \Core\AsteriskBundle\Entity\PbxRecordFile $cdrFiles
      * @return Pbxcdr
      */
-    public function addCdrFile(\CCO\CallCenterBundle\Entity\PbxRecordFile $cdrFiles)
+    public function addCdrFile(\Core\AsteriskBundle\Entity\PbxRecordFile $cdrFiles)
     {
         $this->cdrFiles[] = $cdrFiles;
 
@@ -774,9 +777,9 @@ class PbxCdr
     /**
      * Remove cdrFiles
      *
-     * @param \CCO\CallCenterBundle\Entity\PbxRecordFile $cdrFiles
+     * @param \Core\AsteriskBundle\Entity\PbxRecordFile $cdrFiles
      */
-    public function removeCdrFile(\CCO\CallCenterBundle\Entity\PbxRecordFile $cdrFiles)
+    public function removeCdrFile(\Core\AsteriskBundle\Entity\PbxRecordFile $cdrFiles)
     {
         $this->cdrFiles->removeElement($cdrFiles);
     }
