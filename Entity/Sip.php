@@ -4,10 +4,11 @@ namespace Core\AsteriskBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Pbxsip
  *
- * @ORM\Table(name="pbx_sip")
+ * @ORM\Table(name="pbx.sip")
  * @ORM\Entity
  */
 class Sip
@@ -546,25 +547,35 @@ class Sip
      */
     private $useragent;
 
-    /**
+    /*
      * @var CCO\UserBundle\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="CCO\UserBundle\Entity\User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      * })
+     */
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="user_id", type="integer", nullable=true)
      */
     private $user;
 
-    /**
-     * @var \CCO\CallCenterBundle\Entity\Callcenter
+    /*
+     * @var \CCO\CallCenterBundle\Entity\CallCenter
      *
-     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Callcenter")
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="callcenterid", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
      */
-    private $callcenter;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
+     */
+    private $callCenter;
 
 
 
@@ -2328,26 +2339,26 @@ class Sip
     }
 
     /**
-     * Set callcenter
+     * Set callCenter
      *
-     * @param \Core\AsteriskBundle\Entity\Callcenter $callcenter
+     * @param \Core\AsteriskBundle\Entity\CallCenter $callCenter
      * @return Pbxsip
      */
-    public function setCallcenter(\Core\AsteriskBundle\Entity\Callcenter $callcenter = null)
+    public function setCallcenter($callCenter = null)
     {
-        $this->callcenter = $callcenter;
+        $this->callCenter = $callCenter;
 
         return $this;
     }
 
     /**
-     * Get callcenter
+     * Get callCenter
      *
-     * @return \Core\AsteriskBundle\Entity\Callcenter 
+     * @return \Core\AsteriskBundle\Entity\CallCenter 
      */
     public function getCallcenter()
     {
-        return $this->callcenter;
+        return $this->callCenter;
     }
 
     /**

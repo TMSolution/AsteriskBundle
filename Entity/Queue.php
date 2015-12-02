@@ -4,10 +4,11 @@ namespace Core\AsteriskBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
+
 /**
  * Pbxqueue
  *
- * @ORM\Table(name="pbx_queue")
+ * @ORM\Table(name="pbx.queue")
  * @ORM\Entity
  */
 class Queue
@@ -63,15 +64,20 @@ class Queue
      */
     private $queueCallsWaiting;
 
-    /**
-     * @var \CCO\CallCenterBundle\Entity\Callcenter
+    /*
+     * @var \CCO\CallCenterBundle\Entity\CallCenter
      *
-     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Callcenter")
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="callcenterid", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
      */
-    private $callcenter;
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
+     */
+    private $callCenter;
 
 
 
@@ -226,26 +232,26 @@ class Queue
     }
 
     /**
-     * Set callcenter
+     * Set callCenter
      *
-     * @param \Core\AsteriskBundle\Entity\Callcenter $callcenter
+     * @param \Core\AsteriskBundle\Entity\CallCenter $callCenter
      * @return Pbxqueue
      */
-    public function setCallcenter(\Core\AsteriskBundle\Entity\Callcenter $callcenter = null)
+    public function setCallcenter($callCenter = null)
     {
-        $this->callcenter = $callcenter;
+        $this->callCenter = $callCenter;
 
         return $this;
     }
 
     /**
-     * Get callcenter
+     * Get callCenter
      *
-     * @return \Core\AsteriskBundle\Entity\Callcenter 
+     * @return \Core\AsteriskBundle\Entity\CallCenter 
      */
     public function getCallcenter()
     {
-        return $this->callcenter;
+        return $this->callCenter;
     }
 
     /**

@@ -3,11 +3,15 @@
 namespace Core\AsteriskBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+//use CCO\CallCenterBundle\Entity\Campaign;
+//use CCO\CallCenterBundle\Entity\CallCenter;
+//use CCO\CallCenterBundle\Entity\Contact;
+//use CCO\UserBundle\Entity\User;
 
 /**
  * Pbxcdr
  *
- * @ORM\Table(name="pbx_cdr")
+ * @ORM\Table(name="pbx.cdr")
  * @ORM\Entity
  */
 class Cdr
@@ -154,8 +158,10 @@ class Cdr
      * @ORM\Column(name="peeraccount", type="string", length=45, nullable=true)
      */
     private $peeraccount;
+    
+    
 
-    /**
+    /*
      * @var \CCO\CallCenterBundle\Entity\Campaign
      *
      * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Campaign")
@@ -163,19 +169,29 @@ class Cdr
      *   @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
      * })
      */
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="campaign_id", type="integer", nullable=true)
+     */
     private $campaign;
 
-    /**
-     * @var \CCO\CallCenterBundle\Entity\Callcenter
+    /*
+     * @var \CCO\CallCenterBundle\Entity\CallCenter
      *
-     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Callcenter")
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
      */
-    private $callcenter;
-
     /**
+     * @var integer
+     *
+     * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
+     */
+    private $callCenter;
+
+    /*
      * @var \CCO\CallCenterBundle\Entity\Contact
      *
      * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Contact")
@@ -183,21 +199,31 @@ class Cdr
      *   @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
      * })
      */
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="contact_id", type="integer", nullable=true)
+     */
     private $contact;
     
-    /**
+    /*
      * @var CCO\UserBundle\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="CCO\UserBundle\Entity\User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      * })
+     */
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="user_id", type="integer", nullable=true)
      */
     private $user;
     
     
-    /**
-     * @ORM\ManyToMany(targetEntity="CCO\CallCenterBundle\Entity\PbxRecordFile", mappedBy="pbxcdr")
+    /*
+     * @ORM\ManyToMany(targetEntity="Core\AsteriskBundle\Entity\PbxRecordFile", mappedBy="pbxcdr")
      */
     protected $cdrFiles;
 
@@ -698,26 +724,26 @@ class Cdr
     }
 
     /**
-     * Set callcenter
+     * Set callCenter
      *
-     * @param \Core\AsteriskBundle\Entity\Callcenter $callcenter
+     * @param \Core\AsteriskBundle\Entity\CallCenter $callCenter
      * @return Pbxcdr
      */
-    public function setCallcenter(\Core\AsteriskBundle\Entity\Callcenter $callcenter = null)
+    public function setCallcenter(\Core\AsteriskBundle\Entity\CallCenter $callCenter = null)
     {
-        $this->callcenter = $callcenter;
+        $this->callCenter = $callCenter;
 
         return $this;
     }
 
     /**
-     * Get callcenter
+     * Get callCenter
      *
-     * @return \Core\AsteriskBundle\Entity\Callcenter 
+     * @return \Core\AsteriskBundle\Entity\CallCenter 
      */
     public function getCallcenter()
     {
-        return $this->callcenter;
+        return $this->callCenter;
     }
 
     /**

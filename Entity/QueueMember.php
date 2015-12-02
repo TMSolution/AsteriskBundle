@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * QueueMember
  *
- * @ORM\Table(name="pbx_pbxqueuemember")
+ * @ORM\Table(name="pbx.pbxqueuemember")
  * @ORM\Entity
  */
 class QueueMember
@@ -49,13 +49,18 @@ class QueueMember
      */
     private $paused;
 
-    /**
+    /*
      * @var CCO\UserBundle\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="CCO\UserBundle\Entity\User")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      * })
+     */
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="user_id", type="integer", nullable=true)
      */
     private $user;
 
