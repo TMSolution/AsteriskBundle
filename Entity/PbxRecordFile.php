@@ -11,7 +11,7 @@ use Core\AsteriskBundle\Entity\BaseFile;
 /**
  * PbxRecordFile
  *
- * @ORM\Table(name="pbx.basefile")
+ * @ORM\Table(name="pbx.recordfile")
  * @ORM\Entity
  * @Vich\Uploadable
  */
