@@ -64,9 +64,9 @@ class Meetme
     private $adminOptions;
 
     /**
-     * @var integer
+     * @var string
      *
-     * @ORM\Column(name="members", type="integer", nullable=true)
+     * @ORM\Column(name="members", type="string",length=500, nullable=true)
      */
     private $members;
 

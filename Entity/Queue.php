@@ -78,6 +78,14 @@ class Queue
      * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
      */
     private $callCenter;
+    
+    
+     /**
+     * @var integer
+     *
+     * @ORM\Column(name="campaign_id", type="integer", nullable=true)
+     */
+    private $campaign;
 
 
 
