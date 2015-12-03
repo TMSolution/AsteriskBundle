@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * QueueMember
  *
- * @ORM\Table(name="pbx.pbxqueuemember")
+ * @ORM\Table(name="pbx.queue_member")
  * @ORM\Entity
  */
 class QueueMember

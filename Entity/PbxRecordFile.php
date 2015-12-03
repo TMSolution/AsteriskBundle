@@ -6,12 +6,12 @@ use Doctrine\ORM\Mapping as ORM;
 use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
-use CCO\CallCenterBundle\Entity\BaseFile;
+use Core\AsteriskBundle\Entity\BaseFile;
 
 /**
  * PbxRecordFile
  *
- * @ORM\Table(name="pbx.pbxrecordfile")
+ * @ORM\Table(name="pbx.basefile")
  * @ORM\Entity
  * @Vich\Uploadable
  */
@@ -21,10 +21,7 @@ class PbxRecordFile extends BaseFile
     /**
      * @var File
      * 
-     * @Assert\File(
-     *     maxSize="5M",
-     *     mimeTypes={"image/png", "image/jpeg"}
-     * )
+     * 
      * 
      * @Vich\UploadableField(mapping="pbx_files", fileNameProperty="fileName")
      */
@@ -32,7 +29,7 @@ class PbxRecordFile extends BaseFile
 
     /**
      * @ORM\ManyToMany(targetEntity="Core\AsteriskBundle\Entity\Cdr", inversedBy="pbxRecordFiles")
-     * @ORM\JoinTable(name="pbxcdr_has_pbxrecordfile", 
+     * @ORM\JoinTable(name="pbx.pbxcdr_has_pbxrecordfile", 
      *      joinColumns={ @ORM\JoinColumn(name="pbxrecordfile_id", referencedColumnName="id", unique=true) },
      *      inverseJoinColumns={ @ORM\JoinColumn(name="pbxcdr_id", referencedColumnName="id")})
      */
