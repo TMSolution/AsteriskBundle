@@ -9,7 +9,7 @@ use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity
- * @ORM\Table(name="callcenter_basefile")
+ * @ORM\Table(name="pbx.basefile")
  * @ORM\InheritanceType("JOINED")
  * @ORM\DiscriminatorColumn(name="objectname", type="string")
  * @ORM\DiscriminatorMap({
