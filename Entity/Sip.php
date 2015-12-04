@@ -102,7 +102,7 @@ class Sip
     /**
      * @var string
      *
-     * @ORM\Column(name="nat", type="string", length=10, nullable=true)
+     * @ORM\Column(name="nat", type="string", length=50, nullable=true)
      */
     private $nat;
 
