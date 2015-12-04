@@ -206,6 +206,13 @@ class Cdr
      */
     private $contact;
     
+    /**
+     * @var integer
+     *
+     * @ORM\Column(name="contactdata_id", type="integer", nullable=true)
+     */
+    private $contactdata;
+    
     /*
      * @var CCO\UserBundle\Entity\User
      *
@@ -749,10 +756,9 @@ class Cdr
     /**
      * Set contact
      *
-     * @param \Core\AsteriskBundle\Entity\Contact $contact
      * @return Pbxcdr
      */
-    public function setContact(\Core\AsteriskBundle\Entity\Contact $contact = null)
+    public function setContact($contact = null)
     {
         $this->contact = $contact;
 
@@ -762,11 +768,28 @@ class Cdr
     /**
      * Get contact
      *
-     * @return \Core\AsteriskBundle\Entity\Contact 
      */
     public function getContact()
     {
         return $this->contact;
+    }
+    
+    
+     public function setContactdata($contactdata = null)
+    {
+        $this->contactdata = $contactdata;
+
+        return $this;
+    }
+
+    /**
+     * Get contact
+     *
+     * 
+     */
+    public function getContactdata()
+    {
+        return $this->contactdata;
     }
 
     /**
