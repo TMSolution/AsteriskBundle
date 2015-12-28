@@ -710,10 +710,10 @@ class Cdr
     /**
      * Set campaignid
      *
-     * @param \Core\AsteriskBundle\Entity\Campaign $campaignid
+     * @param $campaignid
      * @return Pbxcdr
      */
-    public function setCampaignid(\Core\AsteriskBundle\Entity\Campaign $campaignid = null)
+    public function setCampaignid( $campaignid = null)
     {
         $this->campaignid = $campaignid;
 
