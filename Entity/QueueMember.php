@@ -206,10 +206,10 @@ class QueueMember
     /**
      * Set pbxqueue
      *
-     * @param \Core\AsteriskBundle\Entity\Pbxqueue $pbxqueue
+     * @param  $pbxqueue
      * @return Pbxqueuemember
      */
-    public function setPbxqueue(\Core\AsteriskBundle\Entity\Pbxqueue $pbxqueue = null)
+    public function setPbxqueue( $pbxqueue = null)
     {
         $this->pbxqueue = $pbxqueue;
 
