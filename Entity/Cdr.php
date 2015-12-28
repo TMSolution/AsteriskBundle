@@ -733,10 +733,10 @@ class Cdr
     /**
      * Set callCenter
      *
-     * @param \Core\AsteriskBundle\Entity\CallCenter $callCenter
+     * @param $callCenter
      * @return Pbxcdr
      */
-    public function setCallcenter(\Core\AsteriskBundle\Entity\CallCenter $callCenter = null)
+    public function setCallcenter( $callCenter = null)
     {
         $this->callCenter = $callCenter;
 
