@@ -547,7 +547,7 @@ class Sip
      */
     private $useragent;
 
-    /*
+    /**
      * @var CCO\UserBundle\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="CCO\UserBundle\Entity\User")
@@ -555,22 +555,22 @@ class Sip
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      * })
      */
-    /**
+    /*
      * @var integer
      *
      * @ORM\Column(name="user_id", type="integer", nullable=true)
      */
     private $user;
 
-    /*
+    /**
      * @var \CCO\CallCenterBundle\Entity\CallCenter
      *
      * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
+     *   @ORM\JoinColumn(name="callcenter_id", referencedColumNanName="id")
      * })
      */
-    /**
+    /*
      * @var integer
      *
      * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
