@@ -555,11 +555,7 @@ class Sip
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      * })
      */
-    /*
-     * @var integer
-     *
-     * @ORM\Column(name="user_id", type="integer", nullable=true)
-     */
+    
     private $user;
 
     /**
@@ -567,14 +563,10 @@ class Sip
      *
      * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter")
      * @ORM\JoinColumns({
-     *   @ORM\JoinColumn(name="callcenter_id", referencedColumNanName="id")
+     *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id", nullable=true)
      * })
      */
-    /*
-     * @var integer
-     *
-     * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
-     */
+   
     private $callCenter;
 
 
