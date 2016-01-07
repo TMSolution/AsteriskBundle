@@ -11,7 +11,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Pbxcdr
  *
- * @ORM\Table(name="pbx.cdr")
+ * @ORM\Table(name="pbx_cdr")
  * @ORM\Entity
  */
 class Cdr

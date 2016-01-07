@@ -8,7 +8,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Pbxsip
  *
- * @ORM\Table(name="pbx.sip")
+ * @ORM\Table(name="pbx_sip")
  * @ORM\Entity
  */
 class Sip

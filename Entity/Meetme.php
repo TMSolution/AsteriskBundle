@@ -7,7 +7,7 @@ use Doctrine\ORM\Mapping as ORM;
 /**
  * Pbxmeetme
  *
- * @ORM\Table(name="pbx.meetme")
+ * @ORM\Table(name="pbx_meetme")
  * @ORM\Entity
  */
 class Meetme
