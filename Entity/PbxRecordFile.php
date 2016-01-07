@@ -27,6 +27,14 @@ class PbxRecordFile extends BaseFile
      */
     protected $file;
 
+    /*
+     * @ORM\ManyToMany(targetEntity="Core\AsteriskBundle\Entity\Cdr", inversedBy="pbxRecordFiles")
+     * @ORM\JoinTable(name="pbx.pbxcdr_has_pbxrecordfile", 
+     *      joinColumns={ @ORM\JoinColumn(name="pbxrecordfile_id", referencedColumnName="id", unique=true) },
+     *      inverseJoinColumns={ @ORM\JoinColumn(name="pbxcdr_id", referencedColumnName="id")})
+     */
+    protected $pbxsdr;
+    
     /**
      * @ORM\Column(type="string",length=255, nullable=true)
      *
@@ -86,6 +94,39 @@ class PbxRecordFile extends BaseFile
     public function getPbxuniqid()
     {
         return $this->pbxuniqid;
+    }
+    
+    /**
+     * Add pbxcdr
+     *
+     * @param \Core\AsteriskBundle\Entity\Cdr $pbxcdr
+     * @return PbxRecordFile
+     */
+    public function addPbxcdr(\Core\AsteriskBundle\Entity\Cdr $pbxcdr)
+    {
+        $this->pbxcdr[] = $pbxcdr;
+
+        return $this;
+    }
+
+    /**
+     * Remove pbxcdr
+     *
+     * @param \Core\AsteriskBundle\Entity\Cdr $pbxcdr
+     */
+    public function removePbxcdr(\Core\AsteriskBundle\Entity\Cdr $pbxcdr)
+    {
+        $this->pbxcdr->removeElement($pbxcdr);
+    }
+
+    /**
+     * Get pbxcdr
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getPbxcdr()
+    {
+        return $this->pbxcdr;
     }
 
 }
