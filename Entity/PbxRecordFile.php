@@ -64,9 +64,9 @@ class PbxRecordFile extends BaseFile
     protected $user;
     
     /**
-     * @var \Callcenter
+     * @var \CallCenter
      *
-     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\User")
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
@@ -101,7 +101,7 @@ class PbxRecordFile extends BaseFile
      */
     public function __construct()
     {
-        //$this->campaign = new \Doctrine\Common\Collections\ArrayCollection();
+        $this->pbxcdr = new \Doctrine\Common\Collections\ArrayCollection();
     }
 
     /**
@@ -182,5 +182,88 @@ class PbxRecordFile extends BaseFile
     {
         return $this->pbxcdr;
     }
+    
+    public function setCallCenter(\CCO\CallCenterBundle\Entity\CallCenter $callCenter = null)
+    {
+        $this->callCenter = $callCenter;
+
+        return $this;
+    }
+
+
+    public function getCallCenter()
+    {
+        return $this->callCenter;
+    }
+    
+    /**
+     * Set campaign
+     *
+     * @param \CCO\CallCenterBundle\Entity\Campaign $campaign
+     * @return ContactData
+     */
+    public function setCampaign(\CCO\CallCenterBundle\Entity\Campaign $campaign = null)
+    {
+        $this->campaign = $campaign;
+
+        return $this;
+    }
+
+    /**
+     * Get campaign
+     *
+     * @return \CCO\CallCenterBundle\Entity\Campaign 
+     */
+    public function getCampaign()
+    {
+        return $this->campaign;
+    }
+
+    /**
+     * Set user
+     *
+     * @param \CCO\UserBundle\Entity\User $user
+     * @return ContactData
+     */
+    public function setUser(\CCO\UserBundle\Entity\User $user = null)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return \CCO\UserBundle\Entity\User 
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
+    
+    /**
+     * Set contactData
+     *
+     * @param \CCO\CallCenterBundle\Entity\ContactData $contactData
+     * @return Contact
+     */
+    public function setContactData(\CCO\CallCenterBundle\Entity\ContactData $contactData = null)
+    {
+        $this->contactData = $contactData;
+
+        return $this;
+    }
+
+    /**
+     * Get contactData
+     *
+     * @return \CCO\CallCenterBundle\Entity\ContactData 
+     */
+    public function getContactData()
+    {
+        return $this->contactData;
+    }
+
 
 }
