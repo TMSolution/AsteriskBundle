@@ -93,7 +93,12 @@ class PbxExternalRecordFile extends BaseFile
      */
     protected $date;
 
-    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="direction", type="string", length="255")
+     */
+    protected $direction;
     
     
     

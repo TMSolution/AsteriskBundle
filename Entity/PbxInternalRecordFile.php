@@ -64,12 +64,21 @@ class PbxInternalRecordFile extends BaseFile
      * @ORM\Column(name="date", type="datetime")
      */
     protected $date;
+    
+    
+    
+     /**
+     * @var string
+     *
+     * @ORM\Column(name="direction", type="string", length="255")
+     */
+    protected $direction;
 
     
     
     
     
-    //// EXTERNAL/CALLCENTER_${CALLCENTERID}/CAMPAIGN_${CAMPAIGNID}/CONTACTDATA_${CONTACTDATAID}/${DATE}/USER_${USERID}/${UNIQUEID}.gsm
+    //// EXTERNAL/CALLCENTER_1/CAMPAIGN_1/CONTACTDATA_1/USER_4/2016_01_08/1452248266.7.gsm"
     
     /**
      * Constructor
