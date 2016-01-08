@@ -275,5 +275,18 @@ class PbxExternalRecordFile extends BaseFile
     {
         return $this->direction;
     }
+    
+    
+     public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    public function getDate()
+    {
+        return $this->date;
+    }
 
 }
