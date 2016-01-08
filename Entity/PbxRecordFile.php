@@ -7,6 +7,8 @@ use Symfony\Component\HttpFoundation\File\File;
 use Vich\UploaderBundle\Mapping\Annotation as Vich;
 use Symfony\Component\Validator\Constraints as Assert;
 use Core\AsteriskBundle\Entity\BaseFile;
+use CCO\CallCenterBundle\Entity\Campaign;
+use CCO\UserBundle\Entity\User;
 
 /**
  * PbxRecordFile
@@ -21,19 +23,17 @@ class PbxRecordFile extends BaseFile
     /**
      * @var File
      * 
-     * 
-     * 
      * @Vich\UploadableField(mapping="pbx_files", fileNameProperty="fileName")
      */
     protected $file;
 
     /*
-     * @ORM\ManyToMany(targetEntity="Core\AsteriskBundle\Entity\Cdr", inversedBy="pbxRecordFiles")
+     * @ORM\ManyToMany(targetEntity="Core\AsteriskBundle\Entity\Cdr", inversedBy="pbxRecordFiles",nullable=true)
      * @ORM\JoinTable(name="pbx.pbxcdr_has_pbxrecordfile", 
      *      joinColumns={ @ORM\JoinColumn(name="pbxrecordfile_id", referencedColumnName="id", unique=true) },
      *      inverseJoinColumns={ @ORM\JoinColumn(name="pbxcdr_id", referencedColumnName="id")})
      */
-    protected $pbxsdr;
+    protected $pbxcdr;
     
     /**
      * @ORM\Column(type="string",length=255, nullable=true)
@@ -41,7 +41,61 @@ class PbxRecordFile extends BaseFile
      * @var pbxuniqid
      */
     protected $pbxuniqid;
+    
+    
+    /**
+     * @var \Campaign
+     *
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Campaign")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
+     * })
+     */
+    protected $campaign;
+    
+    /**
+     * @var CCO\UserBundle\Entity\User
+     *
+     * @ORM\ManyToOne(targetEntity="CCO\UserBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="user_id", referencedColumnName="id")
+     * })
+     */
+    protected $user;
+    
+    /**
+     * @var \Callcenter
+     *
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\User")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
+     * })
+     */
+    protected $callCenter;
+    
+    /**
+     * @var \ContactData
+     *
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\ContactData")
+     * @ORM\JoinColumns({
+     *   @ORM\JoinColumn(name="contactdata_id", referencedColumnName="id")
+     * })
+     */
+    protected $contactData;
+    
+    /**
+     * @var datetime
+     *
+     * @ORM\Column(name="date", type="datetime")
+     */
+    protected $date;
 
+    
+    
+    
+    
+    //// EXTERNAL/CALLCENTER_${CALLCENTERID}/CAMPAIGN_${CAMPAIGNID}/CONTACTDATA_${CONTACTDATAID}/${DATE}/USER_${USERID}/${UNIQUEID}.gsm
+    
     /**
      * Constructor
      */
