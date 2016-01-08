@@ -14,7 +14,8 @@ use Symfony\Component\Validator\Constraints as Assert;
  * @ORM\DiscriminatorColumn(name="objectname", type="string")
  * @ORM\DiscriminatorMap({
  *                         "base" = "Core\AsteriskBundle\Entity\BaseFile",
- *                         "pbxrecord" = "Core\AsteriskBundle\Entity\PbxRecordFile"
+ *                         "externalpbxrecord" = "Core\AsteriskBundle\Entity\PbxExternalRecordFile",
+ *                         "internalpbxrecord" = "Core\AsteriskBundle\Entity\PbxInternalRecordFile"
  * })
  */
 class BaseFile

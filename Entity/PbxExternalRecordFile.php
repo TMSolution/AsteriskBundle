@@ -13,11 +13,11 @@ use CCO\UserBundle\Entity\User;
 /**
  * PbxRecordFile
  *
- * @ORM\Table(name="pbx_recordfile")
+ * @ORM\Table(name="pbx_externalrecordfile")
  * @ORM\Entity
  * @Vich\Uploadable
  */
-class PbxRecordFile extends BaseFile
+class PbxExternalRecordFile extends BaseFile
 {
 
     /**
@@ -43,12 +43,7 @@ class PbxRecordFile extends BaseFile
     protected $pbxuniqid;
     
     
-    /**
-     * @ORM\Column(type="string",length=255, nullable=true)
-     *
-     * @var direction
-     */
-    protected $direction;
+
     
     
     /**
