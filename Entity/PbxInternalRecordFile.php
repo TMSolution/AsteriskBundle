@@ -62,6 +62,7 @@ class PbxInternalRecordFile extends BaseFile
 
     /**
      * @var string
+     * 
      *
      * @ORM\Column(name="direction", type="string", length=255, nullable=true)
      */
