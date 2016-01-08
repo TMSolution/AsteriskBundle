@@ -34,18 +34,14 @@ class PbxExternalRecordFile extends BaseFile
      *      inverseJoinColumns={ @ORM\JoinColumn(name="pbxcdr_id", referencedColumnName="id")})
      */
     protected $pbxcdr;
-    
+
     /**
      * @ORM\Column(type="string",length=255, nullable=true)
      *
      * @var pbxuniqid
      */
     protected $pbxuniqid;
-    
-    
 
-    
-    
     /**
      * @var \Campaign
      *
@@ -55,7 +51,7 @@ class PbxExternalRecordFile extends BaseFile
      * })
      */
     protected $campaign;
-    
+
     /**
      * @var CCO\UserBundle\Entity\User
      *
@@ -65,7 +61,7 @@ class PbxExternalRecordFile extends BaseFile
      * })
      */
     protected $user;
-    
+
     /**
      * @var \CallCenter
      *
@@ -75,7 +71,7 @@ class PbxExternalRecordFile extends BaseFile
      * })
      */
     protected $callCenter;
-    
+
     /**
      * @var \ContactData
      *
@@ -85,7 +81,7 @@ class PbxExternalRecordFile extends BaseFile
      * })
      */
     protected $contactData;
-    
+
     /**
      * @var datetime
      *
@@ -96,14 +92,12 @@ class PbxExternalRecordFile extends BaseFile
     /**
      * @var string
      *
-     * @ORM\Column(name="direction", type="string", length="255")
+     * @ORM\Column(name="direction", type="string", length=255, nullable=true)
      */
     protected $direction;
-    
-    
-    
+
     //// EXTERNAL/CALLCENTER_${CALLCENTERID}/CAMPAIGN_${CAMPAIGNID}/CONTACTDATA_${CONTACTDATAID}/${DATE}/USER_${USERID}/${UNIQUEID}.gsm
-    
+
     /**
      * Constructor
      */
@@ -144,8 +138,6 @@ class PbxExternalRecordFile extends BaseFile
         return $this->file;
     }
 
-
-
     public function setPbxuniqid($uniqId)
     {
         $this->pbxuniqid = $uniqId;
@@ -157,7 +149,7 @@ class PbxExternalRecordFile extends BaseFile
     {
         return $this->pbxuniqid;
     }
-    
+
     /**
      * Add pbxcdr
      *
@@ -190,7 +182,7 @@ class PbxExternalRecordFile extends BaseFile
     {
         return $this->pbxcdr;
     }
-    
+
     public function setCallCenter(\CCO\CallCenterBundle\Entity\CallCenter $callCenter = null)
     {
         $this->callCenter = $callCenter;
@@ -198,12 +190,11 @@ class PbxExternalRecordFile extends BaseFile
         return $this;
     }
 
-
     public function getCallCenter()
     {
         return $this->callCenter;
     }
-    
+
     /**
      * Set campaign
      *
@@ -249,7 +240,7 @@ class PbxExternalRecordFile extends BaseFile
     {
         return $this->user;
     }
-    
+
     /**
      * Set contactData
      *
@@ -273,5 +264,16 @@ class PbxExternalRecordFile extends BaseFile
         return $this->contactData;
     }
 
+    public function setDirection($direction)
+    {
+        $this->direction = $direction;
+
+        return $this;
+    }
+
+    public function getDirection()
+    {
+        return $this->direction;
+    }
 
 }
