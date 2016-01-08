@@ -44,6 +44,14 @@ class PbxRecordFile extends BaseFile
     
     
     /**
+     * @ORM\Column(type="string",length=255, nullable=true)
+     *
+     * @var direction
+     */
+    protected $direction;
+    
+    
+    /**
      * @var \Campaign
      *
      * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\Campaign")
