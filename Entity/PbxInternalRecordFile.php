@@ -34,19 +34,15 @@ class PbxInternalRecordFile extends BaseFile
      *      inverseJoinColumns={ @ORM\JoinColumn(name="pbxcdr_id", referencedColumnName="id")})
      */
     protected $pbxcdr;
-    
+
     /**
      * @ORM\Column(type="string",length=255, nullable=true)
      *
      * @var pbxuniqid
      */
     protected $pbxuniqid;
-    
-    
- 
-    
     protected $user;
-    
+
     /**
      * @var \CallCenter
      *
@@ -56,30 +52,23 @@ class PbxInternalRecordFile extends BaseFile
      * })
      */
     protected $callCenter;
-    
- 
+
     /**
      * @var datetime
      *
      * @ORM\Column(name="date", type="datetime")
      */
     protected $date;
-    
-    
-    
-     /**
+
+    /**
      * @var string
      *
-     * @ORM\Column(name="direction", type="string", length="255")
+     * @ORM\Column(name="direction", type="string", length=255, nullable=true)
      */
     protected $direction;
 
-    
-    
-    
-    
     //// EXTERNAL/CALLCENTER_1/CAMPAIGN_1/CONTACTDATA_1/USER_4/2016_01_08/1452248266.7.gsm"
-    
+
     /**
      * Constructor
      */
@@ -120,8 +109,6 @@ class PbxInternalRecordFile extends BaseFile
         return $this->file;
     }
 
-
-
     public function setPbxuniqid($uniqId)
     {
         $this->pbxuniqid = $uniqId;
@@ -133,7 +120,7 @@ class PbxInternalRecordFile extends BaseFile
     {
         return $this->pbxuniqid;
     }
-    
+
     /**
      * Add pbxcdr
      *
@@ -166,7 +153,7 @@ class PbxInternalRecordFile extends BaseFile
     {
         return $this->pbxcdr;
     }
-    
+
     public function setCallCenter(\CCO\CallCenterBundle\Entity\CallCenter $callCenter = null)
     {
         $this->callCenter = $callCenter;
@@ -174,13 +161,10 @@ class PbxInternalRecordFile extends BaseFile
         return $this;
     }
 
-
     public function getCallCenter()
     {
         return $this->callCenter;
     }
-    
-
 
     /**
      * Set user
@@ -204,7 +188,17 @@ class PbxInternalRecordFile extends BaseFile
     {
         return $this->user;
     }
-   
 
+    public function setDirection($direction)
+    {
+        $this->direction = $direction;
+
+        return $this;
+    }
+
+    public function getDirection()
+    {
+        return $this->direction;
+    }
 
 }
