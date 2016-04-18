@@ -98,8 +98,8 @@ class AsteriskService {
          */
         $listener = new AsteriskListener($this->container);
         //
-        $this->addListener('peerentry', array($listener, 'onPeerEntry'));
-        $this->addListener('fullybooted', array($listener, 'onFullyBooted'));
+        //$this->addListener('peerentry', array($listener, 'onPeerEntry'));
+        //$this->addListener('fullybooted', array($listener, 'onFullyBooted'));
         //$this->addListener('peerlistcomplete', array($listener, 'onPeerListComplete'));
         //$this->removeListener('fullybooted',array($listener, 'onFullyBooted'));
 
@@ -107,12 +107,12 @@ class AsteriskService {
         $function = function($event) {
             echo "Zdarzenie fullybooted" . PHP_EOL;
         };
-        $this->addListener('fullybooted', $function);
+        //$this->addListener('fullybooted', $function);
 
         $function2 = function($event) {
             echo "Zdarzenie peerentry" . PHP_EOL;
         };
-        $this->addListener('peerentry', $function2);
+        //$this->addListener('peerentry', $function2);
         //$this->removeListener('fullybooted',$function);
 
 
