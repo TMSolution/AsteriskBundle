@@ -105,12 +105,12 @@ class AsteriskService {
 
 
         $function = function($event) {
-            echo "Zdarzenie fullybooted" . PHP_EOL;
+           // echo "Zdarzenie fullybooted" . PHP_EOL;
         };
         //$this->addListener('fullybooted', $function);
 
         $function2 = function($event) {
-            echo "Zdarzenie peerentry" . PHP_EOL;
+           // echo "Zdarzenie peerentry" . PHP_EOL;
         };
         //$this->addListener('peerentry', $function2);
         //$this->removeListener('fullybooted',$function);
@@ -198,10 +198,10 @@ class AsteriskService {
                 $buffer = trim(fgets($this->connection, 4096));
             }
 
-            echo '<br/>'.'TYP:'.$type.'<br/>'.PHP_EOL;
+           /* echo '<br/>'.'TYP:'.$type.'<br/>'.PHP_EOL;
             echo '<pre>';
             \Doctrine\Common\Util\Debug::dump($params);
-            echo '</pre>';
+            echo '</pre>';*/
             $this->routeEvent($type, $params, $allowTimeout);
         } while ($type != 'response' && !$this->timeout);
         return $params;
