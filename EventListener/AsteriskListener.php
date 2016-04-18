@@ -20,12 +20,12 @@ class AsteriskListener {
         $this->container = $container;
     }
     /**
-     * Zdrzenie rozpoczynające komunikację z Asterisk Manager-em
+     * Zdarzenie rozpoczynające komunikację z Asterisk Manager-em
      * 
      * @param \Core\AsteriskBundle\Event\AsteriskEvent $event
      */
     public function onFullyBooted(AsteriskEvent $event) {
-          echo "onFullyBooted".PHP_EOL;
+          //echo "onFullyBooted".PHP_EOL;
     }
     
     /**
@@ -35,7 +35,7 @@ class AsteriskListener {
      * @param \Core\AsteriskBundle\Event\AsteriskEvent $event
      */
     public function onPeerEntry(AsteriskEvent $event) {
-        echo "onPeerEntry".PHP_EOL; 
+        //echo "onPeerEntry".PHP_EOL; 
     }
     
     /**
@@ -46,7 +46,7 @@ class AsteriskListener {
      */
     public function onPeerListComplete(AsteriskEvent $event) {
         
-        echo "onPeerListComplete".PHP_EOL;
+        //echo "onPeerListComplete".PHP_EOL;
     }
 
 }

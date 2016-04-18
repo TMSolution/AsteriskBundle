@@ -241,14 +241,14 @@ class AsteriskService {
         $response = false;
         $eventName = strtolower($params['Event']);
 
-        echo "zidentyfikowano " . $eventName . '<br/>' .PHP_EOL;
+        //echo "zidentyfikowano " . $eventName . '<br/>' .PHP_EOL;
 
 
         if ($this->dispatcher->hasListeners($eventName)) {
             $event = new AsteriskEvent($params);
             $response = $this->dispatcher->dispatch($eventName, $event);
         } else {
-            echo "Brak obsługi zdarzenia: $eventName.\n";
+            //echo "Brak obsługi zdarzenia: $eventName.\n";
         }
 
         return $response;
