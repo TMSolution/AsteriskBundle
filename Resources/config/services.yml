@@ -4,12 +4,12 @@ parameters:
 services:
     
     TMSolution.AsteriskBundle.AsteriskService:
-        class: "Core\AsteriskBundle\Service\AsteriskService"
-        arguments: [@service_container]
+        class: Core\AsteriskBundle\Service\AsteriskService
+        arguments: ["@service_container"]
         
     TMSolution.AsteriskBundle.AsteriskListener:
         class: Core\AsteriskBundle\EventListener\AsteriskListener
-        arguments: [@service_container]
+        arguments: ["@service_container"]
         tags:
             - { name: kernel.event_listener, event: fullybooted.event, method: onFullyBooted }
             - { name: kernel.event_listener, event: peerentry.event, method: onPeerEntry }
