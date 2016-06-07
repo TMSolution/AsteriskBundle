@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class QueueMember
 {
+
     /**
      * @var integer
      *
@@ -57,6 +58,7 @@ class QueueMember
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      * })
      */
+
     /**
      * @var integer
      *
@@ -73,10 +75,6 @@ class QueueMember
      * })
      */
     private $pbxqueue;
-
-
-
-   
 
     /**
      * Get unique
@@ -209,7 +207,7 @@ class QueueMember
      * @param  $pbxqueue
      * @return Pbxqueuemember
      */
-    public function setPbxqueue( $pbxqueue = null)
+    public function setPbxqueue($pbxqueue = null)
     {
         $this->pbxqueue = $pbxqueue;
 
@@ -233,9 +231,5 @@ class QueueMember
     {
         $this->getUnique();
     }
-
-
-
-
 
 }

@@ -12,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Meetme
 {
+
     /**
      * @var integer
      *
@@ -85,13 +86,14 @@ class Meetme
      *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
      */
+
     /**
      * @var integer
      *
      * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
      */
     private $callCenter;
-    
+
     /*
      * @var CCO\UserBundle\Entity\User
      *
@@ -100,16 +102,13 @@ class Meetme
      *   @ORM\JoinColumn(name="userid", referencedColumnName="id", nullable=true)
      * })
      */
+
     /**
      * @var integer
      *
      * @ORM\Column(name="user_id", type="integer", nullable=true)
      */
     private $user;
-
-
-
-   
 
     /**
      * Get confno
@@ -336,8 +335,86 @@ class Meetme
         $this->getConfno();
     }
 
+    /**
+     * Get conferenceNumber
+     *
+     * @return integer
+     */
+    public function getConferenceNumber()
+    {
+        return $this->conferenceNumber;
+    }
 
+    /**
+     * Set options
+     *
+     * @param string $options
+     *
+     * @return Meetme
+     */
+    public function setOptions($options)
+    {
+        $this->options = $options;
 
+        return $this;
+    }
 
+    /**
+     * Get options
+     *
+     * @return string
+     */
+    public function getOptions()
+    {
+        return $this->options;
+    }
+
+    /**
+     * Set adminOptions
+     *
+     * @param string $adminOptions
+     *
+     * @return Meetme
+     */
+    public function setAdminOptions($adminOptions)
+    {
+        $this->adminOptions = $adminOptions;
+
+        return $this;
+    }
+
+    /**
+     * Get adminOptions
+     *
+     * @return string
+     */
+    public function getAdminOptions()
+    {
+        return $this->adminOptions;
+    }
+
+    /**
+     * Set user
+     *
+     * @param integer $user
+     *
+     * @return Meetme
+     */
+    public function setUser($user)
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * Get user
+     *
+     * @return integer
+     */
+    public function getUser()
+    {
+        return $this->user;
+    }
 
 }

@@ -4,7 +4,6 @@ namespace Core\AsteriskBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * Pbxsip
  *
@@ -13,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Sip
 {
+
     /**
      * @var integer
      *
@@ -555,7 +555,6 @@ class Sip
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      * })
      */
-    
     private $user;
 
     /**
@@ -566,11 +565,7 @@ class Sip
      *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id", nullable=true)
      * })
      */
-   
     private $callCenter;
-
-
-
 
     /**
      * Get id
@@ -2358,11 +2353,7 @@ class Sip
      */
     public function __toString()
     {
-       return (string)$this->getName();
+        return (string) $this->getName();
     }
-
-
-
-
 
 }

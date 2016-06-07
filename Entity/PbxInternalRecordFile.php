@@ -202,4 +202,28 @@ class PbxInternalRecordFile extends BaseFile
         return $this->direction;
     }
 
+    /**
+     * Set date
+     *
+     * @param \DateTime $date
+     *
+     * @return PbxInternalRecordFile
+     */
+    public function setDate($date)
+    {
+        $this->date = $date;
+
+        return $this;
+    }
+
+    /**
+     * Get date
+     *
+     * @return \DateTime
+     */
+    public function getDate()
+    {
+        return $this->date;
+    }
+
 }

@@ -3,6 +3,7 @@
 namespace Core\AsteriskBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
+
 //use CCO\CallCenterBundle\Entity\Campaign;
 //use CCO\CallCenterBundle\Entity\CallCenter;
 //use CCO\CallCenterBundle\Entity\Contact;
@@ -16,7 +17,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Cdr
 {
-    
+
     /**
      * @var integer
      *
@@ -25,7 +26,7 @@ class Cdr
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
     private $id;
-    
+
     /**
      * @var \DateTime
      *
@@ -158,8 +159,8 @@ class Cdr
      * @ORM\Column(name="peeraccount", type="string", length=45, nullable=true)
      */
     private $peeraccount;
-    
-    
+
+
 
     /*
      * @var \CCO\CallCenterBundle\Entity\Campaign
@@ -169,6 +170,7 @@ class Cdr
      *   @ORM\JoinColumn(name="campaign_id", referencedColumnName="id")
      * })
      */
+
     /**
      * @var integer
      *
@@ -184,6 +186,7 @@ class Cdr
      *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
      */
+
     /**
      * @var integer
      *
@@ -199,20 +202,21 @@ class Cdr
      *   @ORM\JoinColumn(name="contact_id", referencedColumnName="id")
      * })
      */
+
     /**
      * @var integer
      *
      * @ORM\Column(name="contact_id", type="integer", nullable=true)
      */
     private $contact;
-    
+
     /**
      * @var integer
      *
      * @ORM\Column(name="contactdata_id", type="integer", nullable=true)
      */
     private $contactdata;
-    
+
     /*
      * @var CCO\UserBundle\Entity\User
      *
@@ -221,23 +225,21 @@ class Cdr
      *   @ORM\JoinColumn(name="user_id", referencedColumnName="id", nullable=true)
      * })
      */
+
     /**
      * @var integer
      *
      * @ORM\Column(name="user_id", type="integer", nullable=true)
      */
     private $user;
-    
-    
+
+
     /*
      * @ORM\ManyToMany(targetEntity="Core\AsteriskBundle\Entity\PbxRecordFile", mappedBy="pbxcdr")
      */
     protected $cdrFiles;
 
-
-
-
-   /**
+    /**
      * Get id
      *
      * @return integer 
@@ -713,7 +715,7 @@ class Cdr
      * @param $campaignid
      * @return Pbxcdr
      */
-    public function setCampaignid( $campaignid = null)
+    public function setCampaignid($campaignid = null)
     {
         $this->campaignid = $campaignid;
 
@@ -736,7 +738,7 @@ class Cdr
      * @param $callCenter
      * @return Pbxcdr
      */
-    public function setCallcenter( $callCenter = null)
+    public function setCallcenter($callCenter = null)
     {
         $this->callCenter = $callCenter;
 
@@ -773,9 +775,8 @@ class Cdr
     {
         return $this->contact;
     }
-    
-    
-     public function setContactdata($contactdata = null)
+
+    public function setContactdata($contactdata = null)
     {
         $this->contactdata = $contactdata;
 
@@ -799,8 +800,6 @@ class Cdr
     {
         $this->getCalldate();
     }
-
-
 
     /**
      * Constructor
@@ -841,6 +840,30 @@ class Cdr
     public function getCdrFiles()
     {
         return $this->cdrFiles;
+    }
+
+    /**
+     * Set campaign
+     *
+     * @param integer $campaign
+     *
+     * @return Cdr
+     */
+    public function setCampaign($campaign)
+    {
+        $this->campaign = $campaign;
+
+        return $this;
+    }
+
+    /**
+     * Get campaign
+     *
+     * @return integer
+     */
+    public function getCampaign()
+    {
+        return $this->campaign;
     }
 
 }

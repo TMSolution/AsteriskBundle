@@ -4,7 +4,6 @@ namespace Core\AsteriskBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
 
-
 /**
  * Pbxqueue
  *
@@ -13,6 +12,7 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Queue
 {
+
     /**
      * @var integer
      *
@@ -72,22 +72,20 @@ class Queue
      *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
      */
+
     /**
      * @var integer
      *
      * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
      */
     private $callCenter;
-    
-    
-     /**
+
+    /**
      * @var integer
      *
      * @ORM\Column(name="campaign_id", type="integer", nullable=true)
      */
     private $campaign;
-
-
 
     /**
      * Get id
@@ -98,8 +96,6 @@ class Queue
     {
         return $this->id;
     }
-
-    
 
     /**
      * Set name
@@ -267,11 +263,31 @@ class Queue
      */
     public function __toString()
     {
-       return (string)$this->getName();
+        return (string) $this->getName();
     }
 
+    /**
+     * Set campaign
+     *
+     * @param integer $campaign
+     *
+     * @return Queue
+     */
+    public function setCampaign($campaign)
+    {
+        $this->campaign = $campaign;
 
+        return $this;
+    }
 
-
+    /**
+     * Get campaign
+     *
+     * @return integer
+     */
+    public function getCampaign()
+    {
+        return $this->campaign;
+    }
 
 }

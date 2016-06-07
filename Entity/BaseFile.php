@@ -200,6 +200,4 @@ class BaseFile
         return $this->mimeType;
     }
 
-
-
 }
