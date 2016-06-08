@@ -9,6 +9,7 @@ use Doctrine\ORM\Mapping as ORM;
  *
  * @ORM\Table(name="pbx_pjsip_aors")
  * @ORM\Entity
+ * 
  */
 class PjsipAor
 {
@@ -18,7 +19,7 @@ class PjsipAor
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $id;
 
@@ -113,6 +114,10 @@ class PjsipAor
      */
     private $voicemaiExtension;
 
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * Get id

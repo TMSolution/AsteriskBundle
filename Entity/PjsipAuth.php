@@ -18,7 +18,7 @@ class PjsipAuth
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Id
-     * @ORM\GeneratedValue(strategy="IDENTITY")
+     * @ORM\GeneratedValue(strategy="NONE")
      */
     private $id;
 
@@ -65,7 +65,10 @@ class PjsipAuth
     private $userName;
 
     
-
+    public function setId($id)
+    {
+        $this->id = $id;
+    }
 
     /**
      * Get id
