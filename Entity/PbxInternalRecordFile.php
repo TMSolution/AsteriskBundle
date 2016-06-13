@@ -11,7 +11,7 @@ use CCO\CallCenterBundle\Entity\Campaign;
 use CCO\UserBundle\Entity\User;
 
 /**
- * PbxRecordFile
+ * PbxInternalRecordFile
  *
  * @ORM\Table(name="pbx_internalrecordfile")
  * @ORM\Entity
@@ -126,7 +126,7 @@ class PbxInternalRecordFile extends BaseFile
      * Add pbxcdr
      *
      * @param \Core\AsteriskBundle\Entity\Cdr $pbxcdr
-     * @return PbxRecordFile
+     * @return PbxInternalRecordFile
      */
     public function addPbxcdr(\Core\AsteriskBundle\Entity\Cdr $pbxcdr)
     {

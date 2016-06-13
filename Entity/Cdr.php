@@ -235,7 +235,7 @@ class Cdr
 
 
     /*
-     * @ORM\ManyToMany(targetEntity="Core\AsteriskBundle\Entity\PbxRecordFile", mappedBy="pbxcdr")
+     * @ORM\ManyToMany(targetEntity="Core\AsteriskBundle\Entity\PbxExternalRecordFile", mappedBy="pbxcdr")
      */
     protected $cdrFiles;
 
@@ -812,10 +812,10 @@ class Cdr
     /**
      * Add cdrFiles
      *
-     * @param \Core\AsteriskBundle\Entity\PbxRecordFile $cdrFiles
+     * @param \Core\AsteriskBundle\Entity\PbxExternalRecordFile $cdrFiles
      * @return Pbxcdr
      */
-    public function addCdrFile(\Core\AsteriskBundle\Entity\PbxRecordFile $cdrFiles)
+    public function addCdrFile(\Core\AsteriskBundle\Entity\PbxExternalRecordFile $cdrFiles)
     {
         $this->cdrFiles[] = $cdrFiles;
 
@@ -825,9 +825,9 @@ class Cdr
     /**
      * Remove cdrFiles
      *
-     * @param \Core\AsteriskBundle\Entity\PbxRecordFile $cdrFiles
+     * @param \Core\AsteriskBundle\Entity\PbxExternalRecordFile $cdrFiles
      */
-    public function removeCdrFile(\Core\AsteriskBundle\Entity\PbxRecordFile $cdrFiles)
+    public function removeCdrFile(\Core\AsteriskBundle\Entity\PbxExternalRecordFile $cdrFiles)
     {
         $this->cdrFiles->removeElement($cdrFiles);
     }

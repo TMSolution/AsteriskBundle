@@ -11,7 +11,7 @@ use CCO\CallCenterBundle\Entity\Campaign;
 use CCO\UserBundle\Entity\User;
 
 /**
- * PbxRecordFile
+ * PbxExternalRecordFile
  *
  * @ORM\Table(name="pbx_externalrecordfile")
  * @ORM\Entity
@@ -154,7 +154,7 @@ class PbxExternalRecordFile extends BaseFile
      * Add pbxcdr
      *
      * @param \Core\AsteriskBundle\Entity\Cdr $pbxcdr
-     * @return PbxRecordFile
+     * @return PbxExternalRecordFile
      */
     public function addPbxcdr(\Core\AsteriskBundle\Entity\Cdr $pbxcdr)
     {
