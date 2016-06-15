@@ -16,8 +16,8 @@ class PjsipContact
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
-     * @ORM\Ids
+     * @ORM\Column(name="ids", type="integer", nullable=false)
+     * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
      private $ids;
@@ -87,6 +87,15 @@ class PjsipContact
      * @return integer
      */
     public function getId()
+    {
+        return $this->id;
+    }
+    
+    /**
+     * Set id
+     *
+     */
+    public function setId($id)
     {
         return $this->id;
     }
