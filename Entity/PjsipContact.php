@@ -18,9 +18,10 @@ class PjsipContact
      *
      * @ORM\Column(name="id", type="integer", nullable=false)
      * @ORM\Ids
-     * @ORM\GeneratedValue(strategy="NONE")
+     * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    
+     private $ids;
+     
     /**
      * @var integer
      *
