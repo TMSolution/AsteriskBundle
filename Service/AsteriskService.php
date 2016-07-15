@@ -77,7 +77,7 @@ class AsteriskService {
         /* odczyt nagłówka połaczenia */
         $header = fgets($this->connection);
         if ($header === false) {
-            throw new \Exception("Asterisk Manager nie odowiada.");
+            throw new \Exception("Asterisk Manager nie odpowiada.");
         }
 
         /* logowanie */
