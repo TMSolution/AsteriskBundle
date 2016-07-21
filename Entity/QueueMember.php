@@ -50,7 +50,7 @@ class QueueMember
      */
     private $paused;
 
-    /*
+    /**
      * @var CCO\UserBundle\Entity\User
      *
      * @ORM\ManyToOne(targetEntity="CCO\UserBundle\Entity\User")
@@ -59,7 +59,7 @@ class QueueMember
      * })
      */
 
-    /**
+    /*
      * @var integer
      *
      * @ORM\Column(name="user_id", type="integer", nullable=true)
@@ -69,7 +69,7 @@ class QueueMember
     /**
      * @var \Pbxqueue
      *
-     * @ORM\ManyToOne(targetEntity="Queue")
+     * @ORM\ManyToOne(targetEntity="Queue",cascade={"persist"})
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="pbxqueue", referencedColumnName="id")
      * })
@@ -94,7 +94,7 @@ class QueueMember
      */
     public function setMembername($membername)
     {
-        $this->membername = $membername;
+        $this->memberName = $membername;
 
         return $this;
     }
@@ -106,7 +106,7 @@ class QueueMember
      */
     public function getMembername()
     {
-        return $this->membername;
+        return $this->memberName;
     }
 
     /**

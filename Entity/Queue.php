@@ -64,7 +64,7 @@ class Queue
      */
     private $queueCallsWaiting;
 
-    /*
+    /**
      * @var \CCO\CallCenterBundle\Entity\CallCenter
      *
      * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter")
@@ -73,17 +73,14 @@ class Queue
      * })
      */
 
-    /**
-     * @var integer
-     *
-     * @ORM\Column(name="callcenter_id", type="integer", nullable=true)
-     */
+ 
     private $callCenter;
 
+  
+    
     /**
-     * @var integer
-     *
-     * @ORM\Column(name="campaign_id", type="integer", nullable=true)
+     * @ORM\OneToOne(targetEntity="CCO\CallCenterBundle\Entity\Campaign",cascade={"persist"})
+     * @ORM\JoinColumn(name="campaign_id", referencedColumnName="id", nullable=true)
      */
     private $campaign;
 
