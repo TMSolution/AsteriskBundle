@@ -16,11 +16,19 @@ class PjsipTransport
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="uniqueid", type="bigint", nullable=false)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="IDENTITY")
      */
-    private $id;
+    private $unique;
+
+    
+    /**
+     * @var string
+     *
+     * @ORM\Column(name="id", type="string", length=45, nullable=true)
+     */
+    private $name;
 
     /**
      * @var string
@@ -168,9 +176,20 @@ class PjsipTransport
      *
      * @return integer
      */
-    public function getId()
+    public function getUnique()
     {
-        return $this->id;
+        return $this->unique;
+    }
+    
+    public function getName()
+    {
+        return $this->name;
+    }
+    
+    public function setName($name)
+    {
+        $this->name=$name;
+        return $this;
     }
 
     /**
