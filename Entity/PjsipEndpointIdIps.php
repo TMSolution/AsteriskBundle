@@ -20,7 +20,7 @@ class PjsipEndpointIdIps
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
-    private $id;
+    private $name;
 
     /**
      * @var string
@@ -45,14 +45,14 @@ class PjsipEndpointIdIps
      *
      * @return integer
      */
-    public function getId()
+    public function getname()
     {
-        return $this->id;
+        return $this->name;
     }
     
-     public function setId($id)
+     public function setName($name)
     {
-        $this->id=$id;
+        $this->name=$name;
         return $this;
     }
 
