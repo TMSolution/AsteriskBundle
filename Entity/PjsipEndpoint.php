@@ -16,7 +16,7 @@ class PjsipEndpoint
     /**
      * @var integer
      *
-     * @ORM\Column(name="id", type="integer", nullable=false)
+     * @ORM\Column(name="id", type="string", nullable=false, length=45)
      * @ORM\Id
      * @ORM\GeneratedValue(strategy="NONE")
      */
