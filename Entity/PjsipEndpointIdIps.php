@@ -32,7 +32,7 @@ class PjsipEndpointIdIps
     /**
      * @var string
      *
-     * @ORM\Column(name="match", type="string", length=80, nullable=true)
+     * @ORM\Column(name="`match`", type="string", length=80, nullable=true)
      */
     private $match;
 
