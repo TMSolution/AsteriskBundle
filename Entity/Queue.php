@@ -67,7 +67,7 @@ class Queue
     /**
      * @var \CCO\CallCenterBundle\Entity\CallCenter
      *
-     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter")
+     * @ORM\ManyToOne(targetEntity="CCO\CallCenterBundle\Entity\CallCenter",inversedBy="queues")
      * @ORM\JoinColumns({
      *   @ORM\JoinColumn(name="callcenter_id", referencedColumnName="id")
      * })
